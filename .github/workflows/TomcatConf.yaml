@@ -46,4 +46,4 @@ jobs:
           password: ${{secrets.PASSWORD}}
           ssh_options: -o StrictHostKeyChecking=no
 #           pre_upload: rmdir /s /q public
-          post_upload: xcopy /s /y public C:\Program Files\Apache Software Foundation\Tomcat 10.0\ && C:\Program Files\Apache Software Foundation\Tomcat 10.0\bin\catalina.bat stop && C:\Program Files\Apache Software Foundation\Tomcat 10.0\bin\catalina.bat start
+          post_upload: xcopy /s /y public "C:\Program Files\Apache Software Foundation\Tomcat 10.0\" && net stop tomcat10 && net start tomcat10
