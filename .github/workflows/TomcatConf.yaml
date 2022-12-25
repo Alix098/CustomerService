@@ -40,10 +40,10 @@ jobs:
         uses: marcodallasanta/ssh-scp-deploy@v1.2.0
         with:
           local: 'target/CustomerService-0.0.1-SNAPSHOT.war'
-          remote: 'C:\Program Files\Apache Software Foundation\Tomcat 10.0\' 
+          remote: 'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\CS\' 
           host: ${{secrets.HOST}}
           user: ${{secrets.USER}}
           password: ${{secrets.PASSWORD}}
           ssh_options: -o StrictHostKeyChecking=no
-#           pre_upload: rmdir /s /q public
+          pre_upload: rmdir /s /q "C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\CS" && mkdir "C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\CS"
           post_upload: net start tomcat10
