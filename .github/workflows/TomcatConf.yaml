@@ -1,4 +1,4 @@
-name: IIS Deployment of Riyadbank Application
+name: SpringBoot
 
 on:
   workflow_dispatch:
@@ -28,7 +28,7 @@ jobs:
         run: ls
 
       - name:  Wrapper Spring-boot
-        run: mvnw.cmd package
+        run: mvnw package
 
 
 #       - name: Zip the Public folder as public.zip
