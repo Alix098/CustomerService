@@ -28,7 +28,7 @@ jobs:
         run: dir
 
       - name:  Wrapper Spring-boot
-        run: mvnw.cmd package
+        run: D:\a\CustomerService\CustomerService\mvnw.cmd package
 
 
 #       - name: Zip the Public folder as public.zip
