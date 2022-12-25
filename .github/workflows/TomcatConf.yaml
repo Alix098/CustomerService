@@ -16,6 +16,9 @@ jobs:
 
       - name: Setup Java JDK
         uses: actions/setup-java@v3.9.0
+        with:
+            distribution: 'zulu' # See 'Supported distributions' for available options
+            java-version: '17'
 
 
       - name: Verify the Java Version
