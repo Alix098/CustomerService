@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build Riyadbank Website
+    name: Build Ali's King
     runs-on: ubuntu-18.04
     steps:
       - name: Download the Source Code
@@ -28,7 +28,7 @@ jobs:
         run: ls
 
       - name:  Wrapper Spring-boot
-        run: mvnw package
+        run: mvnw.sh package
 
 
 #       - name: Zip the Public folder as public.zip
