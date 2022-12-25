@@ -26,7 +26,8 @@ jobs:
         
       - name: Verify the Dir
         run: ls
-
+      - name: make
+        run: chmod +x mvnw*
       - name:  Wrapper Spring-boot
         run: ./mvnw package
 
