@@ -40,8 +40,9 @@ jobs:
         uses: marcodallasanta/ssh-scp-deploy@v1.2.0
         with:
           local: 'target/*'
-          remote: 'tomcat/webapps/' 
+          remote: 'tomcat/' 
           host: ${{secrets.HOST}}
           user: ${{secrets.USER}}
           password: ${{secrets.PASSWORD}}
           ssh_options: -o StrictHostKeyChecking=no
+          pre_upload: mkdir target/
