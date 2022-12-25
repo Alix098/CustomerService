@@ -1,0 +1,42 @@
+name: IIS Deployment of Riyadbank Application
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build Riyadbank Website
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Download the Source Code
+        uses: actions/checkout@v3
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.9.0
+
+
+      - name: Verify the Java Version
+        run: java --version
+
+      - name:  Wrapper Spring-boot
+        run: mvnw.cmd package
+
+
+#       - name: Zip the Public folder as public.zip
+#         run: zip -r public.zip public/
+      
+      - name: Check the Wrapper
+        run: ls -l /target/CustomerService-0.0.1-SNAPSHOT.war
+
+      - name: Copy the Wrapper Folder to Windows
+        uses: marcodallasanta/ssh-scp-deploy@v1.2.0
+        with:
+          local: 'target/*'
+          remote: 'tomcat/webapps/'
+          host: ${{secrets.HOST}}
+          user: ${{secrets.USER}}
+          password: ${{secrets.PASSWORD}}
+          ssh_options: -o StrictHostKeyChecking=no
