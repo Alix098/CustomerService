@@ -45,5 +45,5 @@ jobs:
           user: ${{secrets.USER}}
           password: ${{secrets.PASSWORD}}
           ssh_options: -o StrictHostKeyChecking=no
-          pre_upload: rmdir /s /q public
+#           pre_upload: rmdir /s /q public
           post_upload: xcopy /s /y public C:\tomcat\webapps && C:\tomcat\bin\catalina.bat stop && C:\tomcat\bin\catalina.bat start
