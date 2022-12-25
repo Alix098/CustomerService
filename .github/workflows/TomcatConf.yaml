@@ -39,11 +39,11 @@ jobs:
       - name: Copy the Wrapper Folder to Windows
         uses: marcodallasanta/ssh-scp-deploy@v1.2.0
         with:
-          local: 'target/*'
+          local: 'target/CustomerService-0.0.1-SNAPSHOT.war'
           remote: 'public/' 
           host: ${{secrets.HOST}}
           user: ${{secrets.USER}}
           password: ${{secrets.PASSWORD}}
           ssh_options: -o StrictHostKeyChecking=no
           pre_upload: rmdir /s /q public
-          post_upload: xcopy /s /y public C:\tomcat\webapps
+          post_upload: xcopy /s /y public C:\tomcat\webapps && C:\tomcat\bin\catalina.bat stop && C:\tomcat\bin\catalina.bat start
