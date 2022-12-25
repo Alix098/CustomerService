@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build Ali's King
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Download the Source Code
         uses: actions/checkout@v3
@@ -25,17 +25,17 @@ jobs:
         run: java --version
         
       - name: Verify the Dir
-        run: dir
+        run: ls
 
       - name:  Wrapper Spring-boot
-        run: D:\a\CustomerService\CustomerService\mvnw.cmd package
+        run: ./mvnw package
 
 
 #       - name: Zip the Public folder as public.zip
 #         run: zip -r public.zip public/
       
-#       - name: Check the Wrapper
-#         run: ls -l /target/CustomerService-0.0.1-SNAPSHOT.war
+      - name: Check the Wrapper
+        run: ls -l /target/CustomerService-0.0.1-SNAPSHOT.war
 
       - name: Copy the Wrapper Folder to Windows
         uses: marcodallasanta/ssh-scp-deploy@v1.2.0
