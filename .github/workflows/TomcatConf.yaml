@@ -35,8 +35,6 @@ jobs:
 #       - name: Zip the Public folder as public.zip
 #         run: zip -r public.zip public/
       
-      - name: Check the Wrapper
-        run: ls -l /target/CustomerService-0.0.1-SNAPSHOT.war
 
       - name: Copy the Wrapper Folder to Windows
         uses: marcodallasanta/ssh-scp-deploy@v1.2.0
