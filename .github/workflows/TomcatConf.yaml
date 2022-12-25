@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build Ali's King
-    runs-on: windows 10
+    runs-on: windows-latest
     steps:
       - name: Download the Source Code
         uses: actions/checkout@v3
